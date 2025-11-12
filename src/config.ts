@@ -1,5 +1,5 @@
 export const SITE = {
-    website: "https://simple-portfolio.vicbox.dev", // replace this with your deployed domain
+    website: "https://sebastianportfolio.site/",
     title: "Simple Portfolio",
     description: "A simple but beautiful portfolio created with Astro",
     tags: ["portfolio", "Resume cv", "Astro"],
@@ -8,9 +8,9 @@ export const SITE = {
     logoText: "Portfolio",
     lang: "en",
     favicon: "/favicon.png",
-    repository: "https://github.com/vito8916/simple-portfolio.git",
+    repository: "https://github.com/omrlw",
     author: "Sebastian Chacon",
-    profile: "https://victoralvarado.dev/",
+    profile: "https://sebastianportfolio.site/",
 }
 
 export const ME = {
@@ -34,7 +34,7 @@ export const ME = {
     contactInfo: {
         email: "omrchacon04@gmail.com",
         linkedin: "https://www.linkedin.com/in/victor-alvaradohn",
-        resumeDoc: "resume.pdf",
+        resumeDoc: "CV_SebastianChacon_2026.pdf",
     },
     aboutMe: "I am a software engineer with a passion for web development. I have experience in building web " + "applications using modern technologies. I am a self-taught developer who enjoys learning new things and " + "sharing knowledge with others.",
 }
