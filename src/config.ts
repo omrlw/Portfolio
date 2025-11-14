@@ -36,7 +36,7 @@ export const ME = {
         linkedin: "https://www.linkedin.com/in/sebastian-chacon-6293a0390/",
         resumeDoc: "Resume_SebastianChacon_2026.pdf",
     },
-    aboutMe: "I am a software engineer with a passion for web development. I have experience in building web " + "applications using modern technologies. I am a self-taught developer who enjoys learning new things and " + "sharing knowledge with others.",
+    aboutMe: "Soy un Desarrollador Full Stack con pasión por construir soluciones del código a la nube. Tengo experiencia con stacks modernos (React, Node.js) y la infraestructura sobre la que corren (AWS, Nginx). Como fundador y Nominado Global en el NASA Space Apps, me apasiona resolver problemas complejos y actualmente estoy explorando soluciones con Inteligencia Artificial.",
 }
 
 export const SOCIALS = [

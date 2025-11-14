@@ -44,31 +44,41 @@ interface WorkExperience {
  */
 const workExperience:WorkExperience[] = [
     {
-        title: "Frontend Developer",
-        startDate: "2020-03-10",
-        company: "Google Inc",
-        location: "United States",
+        title: "Fundador / Desarrolladorr",
+        startDate: "2024-03-10",
+        company: "Simple Web Peru",
+        location: "Arequipa",
         description: "Developed and maintained web applications using React, NextJs, and Tailwind CSS.",
         goals: [
-            "Developed and maintained web applications using React, NodeJs, and MongoDB.",
-            "Worked with the team to develop and maintain web applications using React, NodeJs, and MongoDB.",
-            "Created and maintained web applications using React, NodeJs, and MongoDB.",
+            "Implementación de sitios WordPress + Elementor/WooCommercepara MYPES, con WhatsApp Business, Yape/Plin, formularios y SEO local.",
+            "Desarrollo de CRM propio (React 18 + Vite + Tailwind · Node/Express · PostgreSQL · JWT) con endpoints REST y roles básicos.",
+            "DevOps: AWS Lightsail, Nginx (reverse proxy), PM2, certificados SSL,gestión de dominios y DNS. Monitoreo y respaldo.",
         ],
         currentJob: true,
     },
     {
-        title: "Software Engineer",
-        startDate: "2018-03-10",
-        endDate: "2020-03-10",
-        company: "Company Name",
-        location: "United States",
+        title: "Técnico Auxiliar / Ventas",
+        startDate: "2025-02-05",
+        endDate: "2025-05-10",
+        company: "R Store Perú",
+        location: "Arequipa",
         description: "Developed and maintained web applications using React, NodeJs, and MongoDB.",
         goals: [
-            "Developed and maintained web applications using React, NodeJs, and MongoDB.",
-            "Worked with the team to develop and maintain web applications using React, NodeJs, and MongoDB.",
-            "Created and maintained web applications using React, NodeJs, and MongoDB.",
+            "Atención al cliente, configuración inicial de equipos y soporte postventa."
         ],
         currentJob: false,
+    },
+    {
+        title: "Técnico Informático",
+        startDate: "2022-04-06",
+        endDate: "2025-05-10",
+        company: "Independiente",
+        location: "Arequipa",
+        description: "Developed and maintained web applications using React, NodeJs, and MongoDB.",
+        goals: [
+            "Soporte TI: instalación y afinamiento de Windows 10/11, MacOS yUbuntu, ofimática (O365/Google Workspace), impresoras yperiféricos."
+        ],
+        currentJob: true,
     },
 ];
 export default workExperience;

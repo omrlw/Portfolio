@@ -21,14 +21,14 @@ export default {
     		},
 			colors: {
 				// Light mode colors
-				'light-theme': '#E9EBEC',
-				'primary-light': '#FBD144',
-				'primary-hover-light': '#FFE071',
+				'light-theme': '#F1F5F9',
+				'primary-light': '#2563EB',
+				'primary-hover-light': '#1D4ED8',
 
 				// Dark mode colors
-				'dark-theme': '#0C151D',
-				'primary-dark': '#FFE071',
-				'primary-hover-dark': '#FBD144',
+				'dark-theme': '#0B1220',
+				'primary-dark': '#60A5FA',
+				'primary-hover-dark': '#3B82F6',
 
 				// Neutrals
 				'n200': '#d7d9da',
