@@ -5,7 +5,7 @@ export const SITE = {
     tags: ["portfolio", "Resume cv", "Astro"],
     ogImage: "/og-image.webp",
     logo: "logo",
-    logoText: "Portfolio",
+    logoText: "Mi Portafolio ;)",
     lang: "es",
     favicon: "/favicon.png",
     repository: "https://github.com/omrlw",
