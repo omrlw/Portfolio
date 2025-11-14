@@ -40,7 +40,7 @@ const {
     </div>
     <ul style="list-style: disc;">
         {goals.map((goal: string) => (
-                <li>{goal}</li>
+                <li set:html={goal}></li>
         ))}
     </ul>
 </div>

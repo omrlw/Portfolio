@@ -44,15 +44,15 @@ interface WorkExperience {
  */
 const workExperience:WorkExperience[] = [
     {
-        title: "Fundador / Desarrolladorr",
+        title: "Fundador / Desarrollador",
         startDate: "2024-03-10",
         company: "Simple Web Peru",
         location: "Arequipa",
         description: "Developed and maintained web applications using React, NextJs, and Tailwind CSS.",
         goals: [
-            "Implementación de sitios WordPress + Elementor/WooCommercepara MYPES, con WhatsApp Business, Yape/Plin, formularios y SEO local.",
-            "Desarrollo de CRM propio (React 18 + Vite + Tailwind · Node/Express · PostgreSQL · JWT) con endpoints REST y roles básicos.",
-            "DevOps: AWS Lightsail, Nginx (reverse proxy), PM2, certificados SSL,gestión de dominios y DNS. Monitoreo y respaldo.",
+            "Implementación de sitios <b>WordPress + Elementor/WooCommerce</b> para MYPES, con WhatsApp Business, Yape/Plin, formularios y SEO local.",
+            "Desarrollo de <b>CRM propio</b> (React 18 + Vite + Tailwind · <b>Node/Express · PostgreSQL · JWT</b>) con endpoints REST y roles básicos.",
+            "DevOps: <b>AWS Lightsail, Nginx</b> (reverse proxy), <b>PM2</b>, certificados <b>SSL</b>,gestión de dominios y <b>DNS</b>. Monitoreo y respaldo.",
         ],
         currentJob: true,
     },
@@ -76,7 +76,9 @@ const workExperience:WorkExperience[] = [
         location: "Arequipa",
         description: "Developed and maintained web applications using React, NodeJs, and MongoDB.",
         goals: [
-            "Soporte TI: instalación y afinamiento de Windows 10/11, MacOS yUbuntu, ofimática (O365/Google Workspace), impresoras yperiféricos."
+            "<b>Soporte TI:</b> instalación y afinamiento de Windows 10/11, MacOS y Ubuntu, ofimática (O365/Google Workspace), impresoras y periféricos.",
+            "<b>Hardware:</b> diagnóstico, upgrades (RAM/SSD), limpieza, clonación y recuperación básica de archivos.",
+            "<b>Redes:</b> routers/AP, cableado básico, TCP/IP, DHCP, NAT y seguridadinicial.",
         ],
         currentJob: true,
     },
