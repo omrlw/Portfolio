@@ -7,8 +7,8 @@ export const menu = [
         href: '/projects',
         label: 'Proyectos',
     },
-    // {
-    //     href: '/blog',
-    //     label: 'Blog',
-    // },
+    { 
+        href: '/blog',
+        label: 'Blog',
+    },
 ]
