@@ -1,86 +1,161 @@
 ---
-// component imports
-import {Icon} from "astro-icon/components";
+// (Tus imports siguen igual)
 
-// data imports
-import {menu} from "../data/menu";
-
-// config import
-import {SITE} from "../config";
+import { menu } from "../data/menu";
+import { SITE } from "../config";
 
 const pathname = Astro.url.pathname;
+const isActive = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href));
 ---
 
-<nav class="bg-white dark:bg-n700 fixed w-full z-20 top-0 start-0 " id="menu">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+<nav id="main-nav" class="fixed w-full z-50 top-4 start-0 px-4 nav-smooth">
+    
+    <div class="max-w-screen-xl mx-auto bg-white/80 dark:bg-n700/80 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl shadow-lg">
+        <div class="flex flex-wrap items-center justify-between mx-auto p-3 md:px-6">
+            
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse group">
+                <span class="self-center  text-xl font-bold whitespace-nowrap text-gray-800 dark:text-white group-hover:text-primary transition-colors">
+                    {SITE.logoText}
+                </span>
+            </a>
 
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                { SITE.logoText}
-            </span>
-        </a>
-        <div class="flex md:order-1 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button id="btn-menu" data-collapse-toggle="navbar-sticky" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="navbar-sticky" aria-expanded="false">
-                <span class="sr-only">Abrir menu principal</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M1 1h15M1 7h15M1 13h15"/>
-                </svg>
-            </button>
-        </div>
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-2" id="navbar-sticky">
-            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
-                {
-                    menu.map((item) => (
+            <div class="flex md:order-2 md:hidden">
+                <button id="btn-menu" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Abrir menú</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-1 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
+                    {
+                        menu.map((item) => {
+                            const active = isActive(item.href);
+                            return (
                             <li>
-                                <a
-                                        href={item.href}
-                                        class:list={{
-                                            ["block py-2 px-3 rounded md:p-0"]: true,
-                                            ["active"]: pathname === item.href,
-                                        }}>{item.label}
+                                <a href={item.href}
+                                   class:list={[
+                                       "block py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 ease-in-out",
+                                       active 
+                                         ? "bg-primary-light text-white shadow-md dark:bg-primary dark:text-white transform scale-105" 
+                                         : "text-gray-700 hover:bg-primary-light hover:text-light-theme dark:text-gray-300 dark:hover:bg-white/10 dark:hover:text-white"
+                                   ]}
+                                >
+                                    {item.label}
                                 </a>
                             </li>
-                    ))
-                }
-            </ul>
+                        )})
+                    }
+                </ul>
+            </div>
         </div>
     </div>
+
+    <div id="mobile-menu-dropdown" class="hidden md:hidden mt-2 mx-auto max-w-screen-xl bg-white/90 dark:bg-n700/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 ease-out opacity-0 translate-y-4">
+        <ul class="flex flex-col font-medium p-4 space-y-2">
+            {
+                menu.map((item) => (
+                    <li>
+                        <a href={item.href}
+                           class:list={[
+                               "block py-3 px-4 rounded-xl transition-colors",
+                               isActive(item.href)
+                                 ? "bg-n500/10 text-n500 dark:bg-white/10 dark:text-white font-bold"
+                                 : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                           ]}>
+                            {item.label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
 </nav>
 
 <style>
-    .active {
-        @apply
-        text-light-theme
-        bg-n500
+    /* Definimos la animación personalizada aquí.
+       0.6s es mucho más lento que el default (0.15s o 0.3s).
+       cubic-bezier(0.32, 0.72, 0, 1) crea un efecto de "frenado suave" al final.
+    */
+    .nav-smooth {
+        transition-property: transform, opacity;
+        transition-duration: 0.6s; 
+        transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+        will-change: transform; /* Optimización de rendimiento */
+    }
 
-        md:text-primary-light
-        md:bg-transparent
-
-        dark:text-primary-dark
-        dark:bg-dark-theme
-
-        md:dark:text-primary-dark
-        md:dark:bg-transparent
+    /* Clase para ocultar el nav hacia arriba */
+    .nav-hidden {
+        transform: translateY(-150%); /* Lo sube un 150% de su altura */
+        opacity: 0; /* Opcional: si quieres que también se desvanezca */
     }
 </style>
 
 <script>
-    function toggleNav() {
-        // Toggle menu
+    function initNav() {
         const btnMenu = document.getElementById('btn-menu');
-        const navbar = document.getElementById('navbar-sticky');
+        const mobileMenu = document.getElementById('mobile-menu-dropdown');
+        const navContainer = document.getElementById('main-nav');
 
-        btnMenu?.addEventListener('click', function () {
-            navbar?.classList.toggle('hidden');
+        // === Lógica Menú Móvil ===
+        btnMenu?.addEventListener('click', () => {
+            if (mobileMenu) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    void mobileMenu.offsetWidth; // Trigger reflow
+                    mobileMenu.classList.remove('opacity-0', 'translate-y-4');
+                } else {
+                    mobileMenu.classList.add('opacity-0', 'translate-y-4');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 500); // Espera a que termine la animación (0.5s)
+                }
+            }
+        });
+
+        // === Lógica Scroll Suave ===
+        let lastScrollY = window.scrollY;
+        const scrollThreshold = 50; // Umbral más bajo para detectar movimiento rápido
+
+        const handleScroll = () => {
+            if (!navContainer) return;
+            const currentScrollY = window.scrollY;
+
+            // 1. Si estamos arriba del todo, SIEMPRE mostrar
+            if (currentScrollY < 10) {
+                navContainer.classList.remove('nav-hidden');
+                return;
+            }
+
+            // 2. Detectar dirección
+            // Si bajamos y pasamos el umbral -> Ocultar
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                navContainer.classList.add('nav-hidden');
+            } 
+            // Si subimos -> Mostrar
+            else if (currentScrollY < lastScrollY) {
+                navContainer.classList.remove('nav-hidden');
+            }
+
+            lastScrollY = currentScrollY;
+        };
+
+        // Throttle simple (opcional, pero bueno para rendimiento)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     }
 
-    toggleNav();
-
-    // Runs on view transitions navigation
-    document.addEventListener("astro:after-swap", toggleNav);
+    initNav();
+    document.addEventListener("astro:after-swap", initNav);
 </script>
